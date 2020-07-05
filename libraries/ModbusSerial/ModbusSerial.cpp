@@ -65,7 +65,7 @@ bool ModbusSerial::config(SoftwareSerial* port, long baud, int txPin) {
 }
 #endif
 
-#ifdef __AVR_ATmega32U4__
+#if defined(__AVR_ATmega32U4__) || defined(ARDUINO_ARCH_SAMD)
 bool ModbusSerial::config(Serial_* port, long baud, u_int format, int txPin) {
     this->_port = port;
     this->_txPin = txPin;

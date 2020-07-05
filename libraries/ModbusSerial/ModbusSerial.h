@@ -32,7 +32,7 @@ class ModbusSerial : public Modbus {
         #ifdef USE_SOFTWARE_SERIAL
         bool config(SoftwareSerial* port, long baud, int txPin=-1);
         #endif
-        #ifdef __AVR_ATmega32U4__
+        #if defined(__AVR_ATmega32U4__) || defined(ARDUINO_ARCH_SAMD)
         bool config(Serial_* port, long baud, u_int format, int txPin=-1);
         #endif
         void task();
