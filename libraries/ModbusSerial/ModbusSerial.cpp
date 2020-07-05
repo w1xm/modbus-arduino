@@ -171,15 +171,15 @@ void ModbusSerial::task() {
 
     if (_len == 0) return;
 
-    Serial.print("packet size = ");
-    Serial.println(_len);
+    //Serial.print("packet size = ");
+    //Serial.println(_len);
 
     byte i;
     _frame = (byte*) malloc(_len);
     for (i=0 ; i < _len ; i++) _frame[i] = (*_port).read();
 
     if (this->receive(_frame)) {
-      Serial.println("received frame");
+      //Serial.println("received frame");
       //	Serial.println(_frame);
         if (_reply == MB_REPLY_NORMAL)
             this->sendPDU(_frame);
